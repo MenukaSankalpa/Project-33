@@ -7,6 +7,14 @@ root.geometry('925x500+300+200')
 root.configure(bg="#fff")
 root.resizable(False,False)
 
+def signin():
+    username = user.get()
+    password = code.get()
+    
+    if username == 'admin' and password == '1234':
+        print('Parvat computer technology')
+    
+
 img = PhotoImage(file='login.png')
 Label(root,image=img,bg='white').place(x=50, y=50)
 
@@ -54,7 +62,7 @@ code.bind('<FocusOut>', on_leave)
 Frame(frame,width=295, height=2, bg='black').place(x=25,y=177)
 
 ##################
-Button(frame,width=39,pady=7, text='Sign in', bg='#57a1f8', fg='white',border=0).place(x=35, y=204)
+Button(frame,width=39,pady=7, text='Sign in', bg='#57a1f8', fg='white',border=0, command=signin).place(x=35, y=204)
 label = Label(frame,text="Dont have an account? ", fg='black', bg='white', font=('Microsoft YaHei UI Light', 9))
 label.place(x=75, y=270)
 
