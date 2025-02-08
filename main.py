@@ -12,8 +12,23 @@ def signin():
     password = code.get()
     
     if username == 'admin' and password == '1234':
-        print('Parvat computer technology')
+        screen = Toplevel(root)
+        screen.title("App")
+        screen.geometry('925x500+300+200')
+        screen.config(bg="white")
+        
+        Label(screen, text='Hello Everyone!', bg='#fff', font=('Calibri(Body)', 50, 'bold')).pack(expand=True)
+        
+        screen.mainloop()
     
+    elif username !='admin' and password != '1234':
+        messagebox.showerror("Invalid", "Invalid username or password")
+        
+    elif password != "1234":
+        messagebox.showerror("Invalid", "Invalid password")
+    
+    elif username != 'admin':
+        messagebox.showerror("Invalid", "Invalid Username")
 
 img = PhotoImage(file='login.png')
 Label(root,image=img,bg='white').place(x=50, y=50)
