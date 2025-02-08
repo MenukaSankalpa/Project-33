@@ -17,6 +17,15 @@ heading = Label(frame, text='Sign in', fg='#57a1f8', bg='white', font=('Microsof
 heading.place(x=100, y=5)
 
 ##################
+
+def on_enter(e):
+    user.delete(0, 'end')
+
+def on_leave(e):
+    name=user.get()
+    if name=='':
+        user.insert(0, 'Username')
+        
 user = Entry(frame,width=25, fg='black', border=0, bg="white", font=('Microsoft YaHei UI Light', 11))
 user.place(x=30, y=80)
 user.insert(0, 'Username')
@@ -26,9 +35,20 @@ user.bind('<FocusOut>', on_leave)
 Frame(frame,width=295, height=2, bg='black').place(x=25,y=107)
 
 ##################
+
+def on_enter(e):
+    code.delete(0, 'end')
+
+def on_leave(e):
+    name=code.get()
+    if name=='':
+        code.insert(0, 'Password')
+
 code = Entry(frame,width=25, fg='black', border=0, bg="white", font=('Microsoft YaHei UI Light', 11))
 code.place(x=30, y=150)
 code.insert(0, 'Password')
+code.bind('<FocusIn>', on_enter)
+code.bind('<FocusOut>', on_leave)
 
 
 Frame(frame,width=295, height=2, bg='black').place(x=25,y=177)
