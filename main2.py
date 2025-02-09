@@ -49,7 +49,21 @@ user.bind("FocusOut", on_leave)
 
 Frame(frame, width=295, height=2, bg='black').place(x=25, y=107)
 
+###---
+def on_enter(e):
+    conform_code.delete(0, 'end')
 
+def on_leave(e):
+    if conform_code.get()=='':
+        conform_code.insert(0, 'Conform Password') 
+
+conform_code = Entry(frame, width=25, fg='black', border=0, bg='white', font=('Microsoft Yahei UI Light', 11))
+conform_code.place(x=30, y=220)
+conform_code.insert(0, 'Conform Password')
+conform_code.bind("<FocusIn>", on_enter)
+conform_code.bind("FocusOut", on_leave)
+
+Frame(frame, width=295, height=2, bg='black').place(x=25, y=247)
 
 
 
