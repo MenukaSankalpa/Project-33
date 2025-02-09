@@ -8,6 +8,37 @@ window.geometry('925x550+300+200')
 window.configure(bg="#fff")
 window.resizable(False, False)
 
+def signup():
+    username = user.get()
+    password = code.get()
+    conform_password = conform_code.get()
+    
+    if password == conform_password:
+        try:
+            file = open('datasheet.txt', 'r+')
+            d = file.read()
+            r = ast.literal_eval(d)
+            
+            dict2={username:password}
+            r.update(dict2)
+            file.truncate(0)
+            file.close()
+            
+            file = open('datasheet.txt', 'w')
+            w = file.write(str(r))
+            
+            messagebox.showinfo('Signup', 'Successfully sign up')
+            
+        except:
+            file = open('datasheet.txt', 'w')
+            pp = str({'username':'password'})
+            file.write(pp)
+            file.close()
+            
+    else:
+        messagebox.showerror('Invalid', "Both Password should match")        
+            
+
 img = PhotoImage(file='login2.png')
 Label(window, image=img, bg='white').place(x=50, y=90)
 
