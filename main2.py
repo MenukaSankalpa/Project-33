@@ -18,7 +18,12 @@ heading = Label(frame, text='Sing Up', fg='#57a1f8', bg='white', font=('Microsof
 heading.place(x=100, y=5)
 
 ###
+def on_enter(e):
+    user.delete(0, 'end')
 
+def on_leave(e):
+    if user.get()=='':
+        user.insert(0, 'Username') 
 
 user = Entry(frame, width=25, fg='black', border=0, bg='white', font=('Microsoft Yahei UI Light', 11))
 user.place(x=30, y=80)
