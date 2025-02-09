@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+import ast 
 
 root = Tk()
 root.title('Login')
@@ -11,7 +12,15 @@ def signin():
     username = user.get()
     password = code.get()
     
-    if username == 'admin' and password == '1234':
+    file = open('datasheet.txt', 'r')
+    d = file.read()
+    r = ast.literal_eval(d)
+    file.close()
+    
+    print(r.keys())
+    print(r.values())
+    
+    if username in r.keys() and password == r[username]:
         screen = Toplevel(root)
         screen.title("App")
         screen.geometry('925x500+300+200')

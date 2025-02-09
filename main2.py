@@ -38,6 +38,9 @@ def signup():
     else:
         messagebox.showerror('Invalid', "Both Password should match")        
             
+def sign():
+    window.destroy()
+
 
 img = PhotoImage(file='login2.png')
 Label(window, image=img, bg='white').place(x=50, y=90)
@@ -102,7 +105,7 @@ Button(frame, width=39, pady=7, text='Sign up', bg='#57a1f8', fg='white', border
 label = Label(frame, text='I have an account', fg='black', bg='white', font=('Microsoft Yahei UI light', 9))
 label.place(x=90, y=340)
 
-signin = Button(frame, width=6, text='Sign in', border=0, bg='white', cursor='hand2', fg='#57a1f8')
+signin = Button(frame, width=6, text='Sign in', border=0, bg='white', cursor='hand2', fg='#57a1f8', command=sign)
 signin.place(x=200, y=340)
 
 
